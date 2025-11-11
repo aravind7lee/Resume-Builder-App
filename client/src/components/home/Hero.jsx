@@ -106,7 +106,7 @@ const Hero = () => {
 
         {/* Mobile Sidebar Menu */}
         <div
-          className={`fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out md:hidden ${
+          className={`fixed top-0 right-0 h-full w-[85vw] max-w-sm bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out md:hidden ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >

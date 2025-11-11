@@ -56,6 +56,15 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
 
       <style>
         {`
+          @page {
+            size: letter;
+            margin: 0.5in 0.5in 0.5in 0.5in;
+          }
+          
+          @page {
+            margin: 0;
+          }
+          
           @media print {
             @page {
               size: letter;
@@ -69,10 +78,12 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
             }
             
             html, body {
+              width: 8.5in;
+              height: 11in;
               margin: 0 !important;
               padding: 0 !important;
-              width: 100%;
-              height: 100%;
+              overflow: visible;
+              background: white;
             }
             
             body * {
@@ -88,12 +99,76 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               position: absolute;
               left: 0;
               top: 0;
-              width: 100%;
+              width: 7.5in;
+              height: auto;
+              margin: 0;
+              padding: 0.5in;
+              box-shadow: none !important;
+              border: none !important;
+              background: white !important;
+              page-break-after: auto;
+            }
+            
+            /* ATS-Friendly Typography */
+            #resume-preview h1,
+            #resume-preview h2,
+            #resume-preview h3,
+            #resume-preview h4,
+            #resume-preview h5,
+            #resume-preview h6 {
+              page-break-after: avoid;
+              break-after: avoid;
+              orphans: 3;
+              widows: 3;
+            }
+            
+            #resume-preview p,
+            #resume-preview li,
+            #resume-preview div {
+              orphans: 2;
+              widows: 2;
+            }
+            
+            /* Prevent awkward breaks */
+            #resume-preview section {
+              page-break-inside: avoid;
+              break-inside: avoid;
+            }
+            
+            /* Ensure proper spacing */
+            #resume-preview * {
+              box-sizing: border-box;
+            }
+            
+            /* Remove shadows and borders for clean PDF */
+            #resume-preview *:not(hr) {
+              box-shadow: none !important;
+              text-shadow: none !important;
+            }
+            
+            /* Ensure images are properly sized */
+            #resume-preview img {
               max-width: 100%;
-              margin: 0 !important;
-              padding: 0 !important;
-              transform: scale(1);
-              transform-origin: top left;
+              height: auto;
+              page-break-inside: avoid;
+            }
+            
+            /* Clean list formatting */
+            #resume-preview ul,
+            #resume-preview ol {
+              margin: 0;
+              padding-left: 1.2em;
+            }
+            
+            /* Proper link formatting for ATS */
+            #resume-preview a {
+              color: inherit;
+              text-decoration: none;
+            }
+            
+            /* Remove flex gaps that might cause issues */
+            #resume-preview .flex {
+              gap: 0.25rem;
             }
           }
         `}

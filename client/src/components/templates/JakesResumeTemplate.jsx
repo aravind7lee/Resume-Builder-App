@@ -23,6 +23,14 @@ const JakesResumeTemplate = ({ data, accentColor = '#3B82F6' }) => {
         </div>
       </header>
 
+      {/* Professional Summary */}
+      {data.professional_summary && (
+        <section className="mb-3">
+          <h2 className="text-sm font-bold mb-1 border-b" style={{ borderColor: accentColor }}>Summary</h2>
+          <p className="text-xs leading-relaxed">{data.professional_summary}</p>
+        </section>
+      )}
+
       {/* Education */}
       {data.education && data.education.length > 0 && (
         <section className="mb-3">

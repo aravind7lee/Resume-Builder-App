@@ -3,6 +3,14 @@ import ClassicTemplate from "../assets/templates/ClassicTemplate";
 import ModernTemplate from "../assets/templates/ModernTemplate";
 import MinimalTemplate from "../assets/templates/MinimalTemplate";
 import MinimalImageTemplate from "../assets/templates/MinimalImageTemplate";
+import JakesResumeTemplate from "./templates/JakesResumeTemplate";
+import ExecutiveTemplate from "./templates/ExecutiveTemplate";
+import TwoColumnTemplate from "./templates/TwoColumnTemplate";
+import CreativeTemplate from "./templates/CreativeTemplate";
+import ProfessionalTemplate from "./templates/ProfessionalTemplate";
+import CompactTemplate from "./templates/CompactTemplate";
+import TimelineTemplate from "./templates/TimelineTemplate";
+import ElegantTemplate from "./templates/ElegantTemplate";
 
 const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
   const renderTemplate = () => {
@@ -13,7 +21,22 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
         return <MinimalTemplate data={data} accentColor={accentColor} />;
       case "minimal-image":
         return <MinimalImageTemplate data={data} accentColor={accentColor} />;
-
+      case "jakes-resume":
+        return <JakesResumeTemplate data={data} accentColor={accentColor} />;
+      case "executive":
+        return <ExecutiveTemplate data={data} accentColor={accentColor} />;
+      case "two-column":
+        return <TwoColumnTemplate data={data} accentColor={accentColor} />;
+      case "creative":
+        return <CreativeTemplate data={data} accentColor={accentColor} />;
+      case "professional":
+        return <ProfessionalTemplate data={data} accentColor={accentColor} />;
+      case "compact":
+        return <CompactTemplate data={data} accentColor={accentColor} />;
+      case "timeline":
+        return <TimelineTemplate data={data} accentColor={accentColor} />;
+      case "elegant":
+        return <ElegantTemplate data={data} accentColor={accentColor} />;
       default:
         return <ClassicTemplate data={data} accentColor={accentColor} />;
     }

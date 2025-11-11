@@ -112,21 +112,28 @@ const ResumeBuilder = () => {
   };
 
   const downloadResume = () => {
-    // Add print-specific styles to hide headers/footers
     const style = document.createElement('style');
     style.id = 'print-style';
     style.textContent = `
       @media print {
-        @page { margin: 0; size: letter; }
-        body { margin: 0.5in; }
+        @page { 
+          margin: 0.4in 0.5in; 
+          size: letter; 
+        }
+        body { 
+          margin: 0; 
+          padding: 0;
+          overflow: hidden;
+        }
+        * {
+          page-break-inside: avoid;
+        }
       }
     `;
     document.head.appendChild(style);
     
-    // Trigger print
     window.print();
     
-    // Clean up
     setTimeout(() => {
       const printStyle = document.getElementById('print-style');
       if (printStyle) printStyle.remove();

@@ -11,8 +11,8 @@ const MinimalImageTemplate = ({ data, accentColor = '#3B82F6' }) => {
     };
 
     return (
-        <div className="max-w-5xl mx-auto bg-white text-zinc-800">
-            <div className="grid grid-cols-3">
+        <div className="max-w-[8.5in] mx-auto bg-white text-zinc-800">
+            <div className="grid grid-cols-3" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr 2fr' }}>
 
                 <div className="col-span-1  py-10">
                     {/* Image */}

@@ -11,19 +11,19 @@ const ElegantTemplate = ({ data, accentColor = '#3B82F6' }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-white text-gray-900">
+    <div className="max-w-4xl mx-auto bg-white text-gray-900 print:text-xs">
       {/* Elegant Header with Side Border */}
       <div className="flex">
-        <div className="w-2" style={{ backgroundColor: accentColor }}></div>
-        <div className="flex-1 p-10">
-          <header className="mb-10">
-            <h1 className="text-4xl font-light tracking-wide mb-2" style={{ color: accentColor }}>
+        <div className="w-2 print:w-1" style={{ backgroundColor: accentColor }}></div>
+        <div className="flex-1 p-10 print:p-7">
+          <header className="mb-10 print:mb-4">
+            <h1 className="text-4xl font-light tracking-wide mb-2 print:text-2xl print:mb-1.5" style={{ color: accentColor }}>
               {data.personal_info?.full_name || "Your Name"}
             </h1>
             {data.personal_info?.profession && (
-              <p className="text-lg text-gray-600 font-light mb-4">{data.personal_info.profession}</p>
+              <p className="text-lg text-gray-600 font-light mb-4 print:text-sm print:mb-1.5">{data.personal_info.profession}</p>
             )}
-            <div className="flex flex-wrap gap-4 text-sm text-gray-700 items-center">
+            <div className="flex flex-wrap gap-4 text-sm text-gray-700 items-center print:gap-2 print:text-[10px]">
               {data.personal_info?.email && (
                 <span className="flex items-center gap-1.5">
                   <Mail size={14} style={{ color: accentColor }} />
@@ -53,12 +53,12 @@ const ElegantTemplate = ({ data, accentColor = '#3B82F6' }) => {
 
           {/* Professional Summary */}
           {data.professional_summary && (
-            <section className="mb-10">
-              <h2 className="text-lg font-light tracking-widest uppercase mb-4 flex items-center gap-2" style={{ color: accentColor }}>
-                <Award size={18} />
+            <section className="mb-10 print:mb-3">
+              <h2 className="text-lg font-light tracking-widest uppercase mb-4 flex items-center gap-2 print:text-sm print:mb-1.5 print:gap-1" style={{ color: accentColor }}>
+                <Award size={18} className="print:w-3.5 print:h-3.5" />
                 Profile
               </h2>
-              <p className="text-gray-800 leading-relaxed font-light text-justify">
+              <p className="text-gray-800 leading-relaxed font-light text-justify print:text-xs print:leading-snug">
                 {data.professional_summary}
               </p>
             </section>
@@ -66,25 +66,25 @@ const ElegantTemplate = ({ data, accentColor = '#3B82F6' }) => {
 
           {/* Experience */}
           {data.experience && data.experience.length > 0 && (
-            <section className="mb-10">
-              <h2 className="text-lg font-light tracking-widest uppercase mb-6 flex items-center gap-2" style={{ color: accentColor }}>
-                <Briefcase size={18} />
+            <section className="mb-10 print:mb-3">
+              <h2 className="text-lg font-light tracking-widest uppercase mb-6 flex items-center gap-2 print:text-sm print:mb-1.5 print:gap-1" style={{ color: accentColor }}>
+                <Briefcase size={18} className="print:w-3.5 print:h-3.5" />
                 Professional Experience
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-8 print:space-y-1.5">
                 {data.experience.map((exp, index) => (
                   <div key={index}>
-                    <div className="flex justify-between items-baseline mb-2">
+                    <div className="flex justify-between items-baseline mb-2 print:mb-1">
                       <div>
-                        <h3 className="text-xl font-light" style={{ color: accentColor }}>{exp.position}</h3>
-                        <p className="text-gray-700 font-light italic">{exp.company}</p>
+                        <h3 className="text-xl font-light print:text-sm" style={{ color: accentColor }}>{exp.position}</h3>
+                        <p className="text-gray-700 font-light italic print:text-[10px]">{exp.company}</p>
                       </div>
-                      <span className="text-sm text-gray-600 font-light whitespace-nowrap ml-4">
+                      <span className="text-sm text-gray-600 font-light whitespace-nowrap ml-4 print:text-[10px] print:ml-2">
                         {formatDate(exp.start_date)} – {exp.is_current ? "Present" : formatDate(exp.end_date)}
                       </span>
                     </div>
                     {exp.description && (
-                      <p className="text-gray-800 leading-relaxed font-light whitespace-pre-line">
+                      <p className="text-gray-800 leading-relaxed font-light whitespace-pre-line print:text-xs print:leading-snug">
                         {exp.description}
                       </p>
                     )}
@@ -96,37 +96,37 @@ const ElegantTemplate = ({ data, accentColor = '#3B82F6' }) => {
 
           {/* Projects */}
           {data.project && data.project.length > 0 && (
-            <section className="mb-10">
-              <h2 className="text-lg font-light tracking-widest uppercase mb-6 flex items-center gap-2" style={{ color: accentColor }}>
-                <FolderOpen size={18} />
+            <section className="mb-10 print:mb-3">
+              <h2 className="text-lg font-light tracking-widest uppercase mb-6 flex items-center gap-2 print:text-sm print:mb-1.5 print:gap-1" style={{ color: accentColor }}>
+                <FolderOpen size={18} className="print:w-3.5 print:h-3.5" />
                 Notable Projects
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-6 print:space-y-1.5">
                 {data.project.map((proj, index) => (
                   <div key={index}>
-                    <h3 className="text-lg font-light mb-2" style={{ color: accentColor }}>{proj.name}</h3>
-                    <p className="text-gray-800 leading-relaxed font-light">{proj.description}</p>
+                    <h3 className="text-lg font-light mb-2 print:text-sm print:mb-1" style={{ color: accentColor }}>{proj.name}</h3>
+                    <p className="text-gray-800 leading-relaxed font-light print:text-xs print:leading-snug">{proj.description}</p>
                   </div>
                 ))}
               </div>
             </section>
           )}
 
-          <div className="grid grid-cols-2 gap-10">
+          <div className="grid grid-cols-2 gap-10 print:gap-4">
             {/* Education */}
             {data.education && data.education.length > 0 && (
               <section>
-                <h2 className="text-lg font-light tracking-widest uppercase mb-4 flex items-center gap-2" style={{ color: accentColor }}>
-                  <GraduationCap size={18} />
+                <h2 className="text-lg font-light tracking-widest uppercase mb-4 flex items-center gap-2 print:text-sm print:mb-1.5 print:gap-1" style={{ color: accentColor }}>
+                  <GraduationCap size={18} className="print:w-3.5 print:h-3.5" />
                   Education
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-4 print:space-y-1.5">
                   {data.education.map((edu, index) => (
                     <div key={index}>
-                      <h3 className="font-light text-gray-900">{edu.degree}</h3>
-                      {edu.field && <p className="text-gray-700 font-light italic">{edu.field}</p>}
-                      <p className="text-gray-700 font-light">{edu.institution}</p>
-                      <p className="text-sm text-gray-600 font-light">{formatDate(edu.graduation_date)}</p>
+                      <h3 className="font-light text-gray-900 print:text-xs">{edu.degree}</h3>
+                      {edu.field && <p className="text-gray-700 font-light italic print:text-[10px]">{edu.field}</p>}
+                      <p className="text-gray-700 font-light print:text-[10px]">{edu.institution}</p>
+                      <p className="text-sm text-gray-600 font-light print:text-[10px]">{formatDate(edu.graduation_date)}</p>
                     </div>
                   ))}
                 </div>
@@ -136,14 +136,14 @@ const ElegantTemplate = ({ data, accentColor = '#3B82F6' }) => {
             {/* Skills */}
             {data.skills && data.skills.length > 0 && (
               <section>
-                <h2 className="text-lg font-light tracking-widest uppercase mb-4" style={{ color: accentColor }}>
+                <h2 className="text-lg font-light tracking-widest uppercase mb-4 print:text-sm print:mb-1.5" style={{ color: accentColor }}>
                   Expertise
                 </h2>
-                <div className="space-y-2">
+                <div className="space-y-2 print:space-y-1">
                   {data.skills.map((skill, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-8 h-px" style={{ backgroundColor: accentColor }}></div>
-                      <span className="text-gray-800 font-light">{skill}</span>
+                    <div key={index} className="flex items-center gap-3 print:gap-1.5">
+                      <div className="w-8 h-px print:w-5" style={{ backgroundColor: accentColor }}></div>
+                      <span className="text-gray-800 font-light print:text-xs">{skill}</span>
                     </div>
                   ))}
                 </div>

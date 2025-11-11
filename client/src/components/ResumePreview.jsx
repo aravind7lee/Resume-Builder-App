@@ -57,9 +57,10 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
       <style>
         {`
           @media print {
+            /* Remove all browser headers, footers, URL, date, page numbers */
             @page {
-              size: letter;
-              margin: 0;
+              size: A4;
+              margin: 0mm;
             }
             
             * {
@@ -71,10 +72,12 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
             html, body {
               margin: 0 !important;
               padding: 0 !important;
-              width: 100%;
-              height: 100%;
+              width: 210mm;
+              height: 297mm;
+              overflow: hidden;
             }
             
+            /* Hide everything except resume */
             body * {
               visibility: hidden;
             }
@@ -88,12 +91,73 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               position: absolute;
               left: 0;
               top: 0;
-              width: 100%;
-              max-width: 100%;
+              width: 210mm;
+              height: 297mm;
               margin: 0 !important;
               padding: 0 !important;
-              transform: scale(1);
-              transform-origin: top left;
+              box-shadow: none !important;
+              border: none !important;
+              background: white !important;
+              overflow: hidden;
+            }
+            
+            /* Preserve grid layouts */
+            .grid {
+              display: grid !important;
+            }
+            
+            /* Preserve flex layouts */
+            .flex {
+              display: flex !important;
+            }
+            
+            /* Ensure two-column layouts work */
+            [style*="grid-template-columns"] {
+              display: grid !important;
+            }
+            
+            /* Preserve background colors */
+            [style*="background-color"],
+            [style*="backgroundColor"] {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+            
+            /* Preserve border colors */
+            [style*="border-color"],
+            [style*="borderColor"] {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+            
+            /* Prevent page breaks */
+            #resume-preview > div {
+              page-break-inside: avoid;
+              page-break-after: avoid;
+              page-break-before: avoid;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+              page-break-after: avoid;
+              page-break-inside: avoid;
+            }
+            
+            section {
+              page-break-inside: avoid;
+            }
+            
+            /* Ensure images render */
+            img {
+              max-width: 100%;
+              page-break-inside: avoid;
+            }
+            
+            /* Preserve rounded corners */
+            .rounded-full,
+            .rounded,
+            .rounded-lg,
+            .rounded-md {
+              border-radius: inherit !important;
             }
           }
         `}

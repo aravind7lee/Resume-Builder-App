@@ -9,34 +9,42 @@ const JakesResumeTemplate = ({ data, accentColor = '#3B82F6' }) => {
   };
 
   return (
-    <div className="max-w-[8.5in] mx-auto bg-white text-black font-serif p-8 leading-tight">
+    <div className="max-w-[8.5in] mx-auto bg-white text-black font-serif p-8 leading-tight print:min-h-[11in] print:p-12 print:leading-normal">
       {/* Header */}
-      <header className="text-center mb-4">
-        <h1 className="text-3xl font-bold mb-1">
+      <header className="text-center mb-4 print:mb-6">
+        <h1 className="text-3xl font-bold mb-1 print:text-4xl print:mb-2">
           {data.personal_info?.full_name || "Your Name"}
         </h1>
-        <div className="text-xs flex justify-center gap-3 flex-wrap items-center">
-          {data.personal_info?.phone && <span className="flex items-center gap-1"><Phone size={12} />{data.personal_info.phone}</span>}
-          {data.personal_info?.email && <span className="flex items-center gap-1"><Mail size={12} />{data.personal_info.email}</span>}
-          {data.personal_info?.linkedin && <span className="flex items-center gap-1"><Linkedin size={12} />{data.personal_info.linkedin.replace("https://", "").replace("http://", "")}</span>}
-          {data.personal_info?.website && <span className="flex items-center gap-1"><Globe size={12} />{data.personal_info.website.replace("https://", "").replace("http://", "")}</span>}
+        <div className="text-xs flex justify-center gap-3 flex-wrap items-center print:text-sm print:gap-4">
+          {data.personal_info?.phone && <span className="flex items-center gap-1"><Phone size={12} className="print:w-4 print:h-4" />{data.personal_info.phone}</span>}
+          {data.personal_info?.email && <span className="flex items-center gap-1"><Mail size={12} className="print:w-4 print:h-4" />{data.personal_info.email}</span>}
+          {data.personal_info?.linkedin && <span className="flex items-center gap-1"><Linkedin size={12} className="print:w-4 print:h-4" />{data.personal_info.linkedin.replace("https://", "").replace("http://", "")}</span>}
+          {data.personal_info?.website && <span className="flex items-center gap-1"><Globe size={12} className="print:w-4 print:h-4" />{data.personal_info.website.replace("https://", "").replace("http://", "")}</span>}
         </div>
       </header>
 
+      {/* Professional Summary */}
+      {data.professional_summary && (
+        <section className="mb-3 print:mb-5">
+          <h2 className="text-sm font-bold mb-1 border-b print:text-base print:mb-2" style={{ borderColor: accentColor }}>Summary</h2>
+          <p className="text-xs print:text-sm">{data.professional_summary}</p>
+        </section>
+      )}
+
       {/* Education */}
       {data.education && data.education.length > 0 && (
-        <section className="mb-3">
-          <h2 className="text-sm font-bold mb-1 border-b" style={{ borderColor: accentColor }}>Education</h2>
+        <section className="mb-3 print:mb-5">
+          <h2 className="text-sm font-bold mb-1 border-b print:text-base print:mb-2" style={{ borderColor: accentColor }}>Education</h2>
           {data.education.map((edu, index) => (
-            <div key={index} className="mb-2">
-              <div className="flex justify-between text-xs">
+            <div key={index} className="mb-2 print:mb-3">
+              <div className="flex justify-between text-xs print:text-sm">
                 <div>
                   <span className="font-bold">{edu.institution}</span>
                   {edu.location && <span className="italic"> {edu.location}</span>}
                 </div>
                 <span className="italic">{formatDate(edu.graduation_date)}</span>
               </div>
-              <div className="text-xs italic">
+              <div className="text-xs italic print:text-sm">
                 {edu.degree} {edu.field && `in ${edu.field}`}
                 {edu.gpa && `; GPA: ${edu.gpa}`}
               </div>
@@ -47,11 +55,11 @@ const JakesResumeTemplate = ({ data, accentColor = '#3B82F6' }) => {
 
       {/* Experience */}
       {data.experience && data.experience.length > 0 && (
-        <section className="mb-3">
-          <h2 className="text-sm font-bold mb-1 border-b" style={{ borderColor: accentColor }}>Experience</h2>
+        <section className="mb-3 print:mb-5">
+          <h2 className="text-sm font-bold mb-1 border-b print:text-base print:mb-2" style={{ borderColor: accentColor }}>Experience</h2>
           {data.experience.map((exp, index) => (
-            <div key={index} className="mb-2">
-              <div className="flex justify-between text-xs">
+            <div key={index} className="mb-2 print:mb-4">
+              <div className="flex justify-between text-xs print:text-sm">
                 <div>
                   <span className="font-bold">{exp.company}</span>
                   {exp.location && <span className="italic"> {exp.location}</span>}
@@ -60,9 +68,9 @@ const JakesResumeTemplate = ({ data, accentColor = '#3B82F6' }) => {
                   {formatDate(exp.start_date)} - {exp.is_current ? "Present" : formatDate(exp.end_date)}
                 </span>
               </div>
-              <div className="text-xs italic mb-1">{exp.position}</div>
+              <div className="text-xs italic mb-1 print:text-sm print:mb-2">{exp.position}</div>
               {exp.description && (
-                <ul className="list-disc ml-4 text-xs space-y-0.5">
+                <ul className="list-disc ml-4 text-xs space-y-0.5 print:text-sm print:space-y-1 print:ml-5">
                   {exp.description.split("\n").filter(line => line.trim()).map((line, i) => (
                     <li key={i}>{line.trim()}</li>
                   ))}
@@ -75,16 +83,16 @@ const JakesResumeTemplate = ({ data, accentColor = '#3B82F6' }) => {
 
       {/* Projects */}
       {data.project && data.project.length > 0 && (
-        <section className="mb-3">
-          <h2 className="text-sm font-bold mb-1 border-b" style={{ borderColor: accentColor }}>Projects</h2>
+        <section className="mb-3 print:mb-5">
+          <h2 className="text-sm font-bold mb-1 border-b print:text-base print:mb-2" style={{ borderColor: accentColor }}>Projects</h2>
           {data.project.map((proj, index) => (
-            <div key={index} className="mb-2">
-              <div className="text-xs">
+            <div key={index} className="mb-2 print:mb-4">
+              <div className="text-xs print:text-sm">
                 <span className="font-bold">{proj.name}</span>
                 {proj.technologies && <span className="italic"> | {proj.technologies}</span>}
               </div>
               {proj.description && (
-                <ul className="list-disc ml-4 text-xs space-y-0.5">
+                <ul className="list-disc ml-4 text-xs space-y-0.5 print:text-sm print:space-y-1 print:ml-5">
                   {proj.description.split("\n").filter(line => line.trim()).map((line, i) => (
                     <li key={i}>{line.trim()}</li>
                   ))}
@@ -97,9 +105,9 @@ const JakesResumeTemplate = ({ data, accentColor = '#3B82F6' }) => {
 
       {/* Technical Skills */}
       {data.skills && data.skills.length > 0 && (
-        <section className="mb-3">
-          <h2 className="text-sm font-bold mb-1 border-b" style={{ borderColor: accentColor }}>Technical Skills</h2>
-          <div className="text-xs">
+        <section className="mb-3 print:mb-5">
+          <h2 className="text-sm font-bold mb-1 border-b print:text-base print:mb-2" style={{ borderColor: accentColor }}>Technical Skills</h2>
+          <div className="text-xs print:text-sm">
             <span className="font-bold">Languages: </span>
             <span>{data.skills.join(", ")}</span>
           </div>

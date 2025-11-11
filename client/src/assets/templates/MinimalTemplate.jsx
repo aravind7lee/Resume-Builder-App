@@ -33,6 +33,9 @@ const MinimalTemplate = ({ data, accentColor = '#3B82F6' }) => {
             {/* Professional Summary */}
             {data.professional_summary && (
                 <section className="mb-5">
+                    <h2 className="text-base uppercase tracking-wide mb-2 font-bold" style={{ color: accentColor }}>
+                        Summary
+                    </h2>
                     <p className="text-sm text-gray-700 leading-relaxed">
                         {data.professional_summary}
                     </p>

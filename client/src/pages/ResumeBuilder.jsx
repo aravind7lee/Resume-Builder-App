@@ -112,7 +112,25 @@ const ResumeBuilder = () => {
   };
 
   const downloadResume = () => {
+    // Add print-specific styles to hide headers/footers
+    const style = document.createElement('style');
+    style.id = 'print-style';
+    style.textContent = `
+      @media print {
+        @page { margin: 0; size: letter; }
+        body { margin: 0.5in; }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Trigger print
     window.print();
+    
+    // Clean up
+    setTimeout(() => {
+      const printStyle = document.getElementById('print-style');
+      if (printStyle) printStyle.remove();
+    }, 1000);
   };
 
   const saveResume = async () => {
@@ -338,6 +356,7 @@ const ResumeBuilder = () => {
                 <button
                   onClick={downloadResume}
                   className="flex items-center gap-2 px-6 py-2 text-xs bg-gradient-to-br from-green-100 to-green-200 text-gray-600 rounded-lg ring-green-300 hover:ring transition-colors"
+                  title="Tip: Uncheck 'Headers and footers' in print dialog for clean PDF"
                 >
                   <DownloadIcon className="size-4" /> Download
                 </button>

@@ -3,10 +3,10 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-10 md:gap-20 py-16 px-6 md:px-16 lg:px-24 xl:px-32 text-[13px] text-gray-500 bg-gradient-to-r from-white via-green-200/60 to-white mt-40">
-        <div className="flex flex-wrap items-start gap-10 md:gap-[60px] xl:gap-[140px]">
+      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-8 sm:gap-10 md:gap-20 py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 text-xs sm:text-[13px] text-gray-500 bg-gradient-to-br from-gray-50 to-green-50 border-t border-gray-200 mt-28 sm:mt-40">
+        <div className="flex flex-wrap items-start gap-8 sm:gap-10 md:gap-[60px] xl:gap-[140px]">
           <a href="#">
-            <img src="/logo.png" alt="logo" className="h-11 auto" />
+            <img src="/logo.png" alt="logo" className="h-10 sm:h-11 w-auto" />
           </a>
           <div>
             <p className="text-slate-800 font-semibold">Product</p>
@@ -82,12 +82,12 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col max-md:items-center max-md:text-center gap-2 items-end">
+        <div className="flex flex-col max-md:items-center max-md:text-center gap-2 items-end w-full lg:w-auto">
           <p className="max-w-60">
             Making every customer feel valued—no matter the size of your
             audience.
           </p>
-          <div className="flex items-center gap-4 mt-3">
+          <div className="flex items-center gap-3 sm:gap-4 mt-3">
             <a
               href="https://www.instagram.com/aravvvv._.22/"
               target="_blank"

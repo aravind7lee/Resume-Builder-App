@@ -58,14 +58,11 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
         {`
           @page {
             size: letter;
-            margin: 0.5in 0.5in 0.5in 0.5in;
-          }
-          
-          @page {
             margin: 0;
           }
           
           @media print {
+            /* Remove browser headers and footers */
             @page {
               size: letter;
               margin: 0;
@@ -86,6 +83,7 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               background: white;
             }
             
+            /* Hide everything except resume */
             body * {
               visibility: hidden;
             }
@@ -95,18 +93,25 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               visibility: visible;
             }
             
+            /* Full page resume layout */
             #resume-preview {
               position: absolute;
               left: 0;
               top: 0;
-              width: 7.5in;
-              height: auto;
+              width: 8.5in;
+              height: 11in;
               margin: 0;
               padding: 0.5in;
               box-shadow: none !important;
               border: none !important;
               background: white !important;
               page-break-after: auto;
+              overflow: hidden;
+            }
+            
+            /* Remove extra spacing */
+            #resume-preview > * {
+              margin-top: 0 !important;
             }
             
             /* ATS-Friendly Typography */
@@ -120,6 +125,8 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               break-after: avoid;
               orphans: 3;
               widows: 3;
+              margin-top: 0.5rem;
+              margin-bottom: 0.25rem;
             }
             
             #resume-preview p,
@@ -156,8 +163,12 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
             /* Clean list formatting */
             #resume-preview ul,
             #resume-preview ol {
-              margin: 0;
+              margin: 0.25rem 0;
               padding-left: 1.2em;
+            }
+            
+            #resume-preview li {
+              margin-bottom: 0.15rem;
             }
             
             /* Proper link formatting for ATS */
@@ -166,9 +177,14 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               text-decoration: none;
             }
             
-            /* Remove flex gaps that might cause issues */
+            /* Optimize spacing */
             #resume-preview .flex {
               gap: 0.25rem;
+            }
+            
+            /* Compact spacing for professional look */
+            #resume-preview p {
+              margin: 0.15rem 0;
             }
           }
         `}

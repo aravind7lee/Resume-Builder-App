@@ -112,22 +112,33 @@ const ResumeBuilder = () => {
   };
 
   const downloadResume = () => {
-    // Add print-specific styles to hide headers/footers
+    // Add print-specific styles for clean PDF
     const style = document.createElement('style');
     style.id = 'print-style';
     style.textContent = `
       @media print {
-        @page { margin: 0; size: letter; }
-        body { margin: 0.5in; }
+        @page { 
+          margin: 0; 
+          size: letter; 
+        }
+        body { 
+          margin: 0;
+          padding: 0;
+        }
       }
     `;
     document.head.appendChild(style);
     
-    // Trigger print
+    // Set document title for PDF filename
+    const originalTitle = document.title;
+    document.title = resumeData.title || 'Resume';
+    
+    // Trigger print dialog
     window.print();
     
-    // Clean up
+    // Restore original title and clean up
     setTimeout(() => {
+      document.title = originalTitle;
       const printStyle = document.getElementById('print-style');
       if (printStyle) printStyle.remove();
     }, 1000);

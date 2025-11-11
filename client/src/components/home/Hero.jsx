@@ -17,9 +17,15 @@ const Hero = () => {
 
   return (
     <>
-      <div className="min-h-screen pb-20 bg-gradient-to-b from-white to-gray-50">
+      <div className="min-h-screen pb-20 bg-gradient-to-br from-white via-green-50/30 to-emerald-50/30 relative overflow-hidden">
+        {/* Animated Background Mesh */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-green-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-40 right-10 w-96 h-96 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-20 left-1/2 w-96 h-96 bg-teal-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
         {/* Navbar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between w-full py-4 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-40 text-sm bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <nav className="sticky top-0 z-50 flex items-center justify-between w-full py-3 sm:py-4 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-40 text-sm bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-lg">
           <a href="#">
             <img src="/logo.png" alt="logo" className="h-10 sm:h-12 w-auto" />
           </a>
@@ -42,7 +48,7 @@ const Hero = () => {
           <div className="flex gap-2 sm:gap-3">
             <Link
               to="/app?state=register"
-              className="hidden md:block px-5 sm:px-7 py-2 sm:py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 active:scale-95 transition-all rounded-full text-white font-semibold shadow-md hover:shadow-lg text-sm"
+              className="hidden md:block px-5 sm:px-7 py-2 sm:py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 active:scale-95 transition-all rounded-full text-white font-semibold shadow-lg shadow-green-500/50 hover:shadow-xl hover:shadow-green-500/60 text-sm"
               hidden={user}
             >
               Get Started
@@ -57,7 +63,7 @@ const Hero = () => {
 
             <Link
               to="/app"
-              className="hidden md:block px-6 sm:px-8 py-2 sm:py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 active:scale-95 transition-all rounded-full text-white font-semibold shadow-md hover:shadow-lg text-sm"
+              className="hidden md:block px-6 sm:px-8 py-2 sm:py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 active:scale-95 transition-all rounded-full text-white font-semibold shadow-lg shadow-green-500/50 hover:shadow-xl hover:shadow-green-500/60 text-sm"
               hidden={!user}
             >
               Dashboard
@@ -241,7 +247,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="flex flex-col items-center justify-center text-sm px-4 sm:px-6 md:px-16 lg:px-24 xl:px-40 text-black pt-24 sm:pt-28 md:pt-32">
+        <div className="flex flex-col items-center justify-center text-sm px-4 sm:px-6 md:px-16 lg:px-24 xl:px-40 text-black pt-8 sm:pt-12 md:pt-16">
           {/* Avatars + Stars */}
           <div className="flex items-center mt-6 sm:mt-8 md:mt-12">
             <div className="flex -space-x-2 sm:-space-x-3 pr-3 sm:pr-4">
@@ -300,15 +306,15 @@ const Hero = () => {
           </div>
 
           {/* Headline + CTA */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-5xl text-center mt-6 sm:mt-8 leading-tight sm:leading-tight md:leading-[70px] lg:leading-[85px] text-gray-900 px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold max-w-5xl text-center mt-6 sm:mt-8 leading-tight sm:leading-tight md:leading-[70px] lg:leading-[85px] text-gray-900 px-2 animate-fade-in-up">
             Land Your Dream Job with{" "}
-            <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
               AI-Powered
             </span>{" "}
             Resumes
           </h1>
 
-          <p className="max-w-2xl text-center text-base sm:text-lg my-6 sm:my-8 text-gray-600 leading-relaxed font-medium px-4">
+          <p className="max-w-2xl text-center text-base sm:text-lg my-6 sm:my-8 text-gray-700 leading-relaxed font-semibold px-4 animate-fade-in-up animation-delay-200">
             Create stunning, ATS-friendly resumes in minutes with our intelligent AI assistant. Stand out from the crowd and get hired faster.
           </p>
 
@@ -316,9 +322,11 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-2 w-full sm:w-auto px-4 sm:px-0">
             <Link
               to="/app"
-              className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-full px-8 sm:px-10 h-12 sm:h-14 flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl font-bold text-sm sm:text-base transform hover:scale-105 w-full sm:w-auto"
+              className="relative bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 text-white rounded-full px-8 sm:px-10 h-12 sm:h-14 flex items-center justify-center gap-2 transition-all shadow-2xl shadow-green-500/50 hover:shadow-green-500/70 font-bold text-sm sm:text-base transform hover:scale-110 w-full sm:w-auto animate-pulse-slow overflow-hidden group"
             >
-              Get Started Free
+              <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+              <span className="relative z-10">
+              Get Started Free</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -335,7 +343,7 @@ const Hero = () => {
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
             </Link>
-            <button className="flex items-center justify-center gap-2 sm:gap-3 border-2 border-gray-300 hover:border-green-600 hover:bg-green-50 transition-all rounded-full px-6 sm:px-8 h-12 sm:h-14 text-gray-700 font-bold text-sm sm:text-base w-full sm:w-auto">
+            <button className="flex items-center justify-center gap-2 sm:gap-3 border-2 border-gray-300 hover:border-green-600 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all rounded-full px-6 sm:px-8 h-12 sm:h-14 text-gray-700 hover:text-green-700 font-bold text-sm sm:text-base w-full sm:w-auto shadow-md hover:shadow-lg transform hover:scale-105">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -380,6 +388,60 @@ const Hero = () => {
 
                     * {
                         font-family: 'Poppins', sans-serif;
+                    }
+                    
+                    @keyframes blob {
+                        0%, 100% { transform: translate(0, 0) scale(1); }
+                        25% { transform: translate(20px, -50px) scale(1.1); }
+                        50% { transform: translate(-20px, 20px) scale(0.9); }
+                        75% { transform: translate(50px, 50px) scale(1.05); }
+                    }
+                    
+                    .animate-blob {
+                        animation: blob 20s infinite;
+                    }
+                    
+                    .animation-delay-2000 {
+                        animation-delay: 2s;
+                    }
+                    
+                    .animation-delay-4000 {
+                        animation-delay: 4s;
+                    }
+                    
+                    @keyframes fade-in-up {
+                        from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                    
+                    .animate-fade-in-up {
+                        animation: fade-in-up 0.8s ease-out;
+                    }
+                    
+                    .animation-delay-200 {
+                        animation-delay: 0.2s;
+                        opacity: 0;
+                        animation-fill-mode: forwards;
+                    }
+                    
+                    @keyframes gradient {
+                        0%, 100% { background-position: 0% 50%; }
+                        50% { background-position: 100% 50%; }
+                    }
+                    
+                    .animate-gradient {
+                        background-size: 200% 200%;
+                        animation: gradient 3s ease infinite;
+                    }
+                    
+                    .animate-pulse-slow {
+                        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
                     }
                 `}
       </style>

@@ -3,79 +3,79 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-8 sm:gap-10 md:gap-20 py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 text-xs sm:text-[13px] text-gray-500 bg-gradient-to-br from-gray-50 to-green-50 border-t border-gray-200 mt-28 sm:mt-40">
+      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-8 sm:gap-10 md:gap-20 py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 text-xs sm:text-[13px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700 mt-28 sm:mt-40">
         <div className="flex flex-wrap items-start gap-8 sm:gap-10 md:gap-[60px] xl:gap-[140px]">
           <a href="#">
             <img src="/logo.png" alt="logo" className="h-10 sm:h-11 w-auto" />
           </a>
           <div>
-            <p className="text-slate-800 font-semibold">Product</p>
+            <p className="text-white font-semibold mb-3">Product</p>
             <ul className="mt-2 space-y-2">
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Home
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Support
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Affiliate
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <p className="text-slate-800 font-semibold">Resources</p>
+            <p className="text-white font-semibold mb-3">Resources</p>
             <ul className="mt-2 space-y-2">
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Company
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Blogs
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Community
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Careers
                   <span className="text-xs text-white bg-green-600 rounded-md ml-2 px-2 py-1">
-                    We’re hiring!
+                    We're hiring!
                   </span>
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   About
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <p className="text-slate-800 font-semibold">Legal</p>
+            <p className="text-white font-semibold mb-3">Legal</p>
             <ul className="mt-2 space-y-2">
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Privacy
                 </a>
               </li>
               <li>
-                <a href="/" className="hover:text-green-600 transition">
+                <a href="/" className="text-gray-400 hover:text-green-400 transition">
                   Terms
                 </a>
               </li>
@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col max-md:items-center max-md:text-center gap-2 items-end w-full lg:w-auto">
-          <p className="max-w-60">
+          <p className="max-w-60 text-gray-400">
             Making every customer feel valued—no matter the size of your
             audience.
           </p>
@@ -92,6 +92,7 @@ const Footer = () => {
               href="https://www.instagram.com/aravvvv._.22/"
               target="_blank"
               rel="noreferrer"
+              className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +104,7 @@ const Footer = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-instagram size-5 hover:text-green-500"
+                className="lucide lucide-instagram size-5 text-gray-400 hover:text-green-400"
                 aria-hidden="true"
               >
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -115,6 +116,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/aravind042"
               target="_blank"
               rel="noreferrer"
+              className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +128,7 @@ const Footer = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-linkedin size-5 hover:text-green-500"
+                className="lucide lucide-linkedin size-5 text-gray-400 hover:text-green-400"
                 aria-hidden="true"
               >
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -138,6 +140,7 @@ const Footer = () => {
               href="https://github.com/aravind7lee"
               target="_blank"
               rel="noreferrer"
+              className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +152,7 @@ const Footer = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-github size-5 hover:text-green-500"
+                className="lucide lucide-github size-5 text-gray-400 hover:text-green-400"
                 aria-hidden="true"
               >
                 <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
@@ -160,6 +163,7 @@ const Footer = () => {
               href="https://aravv-portfolio.netlify.app/"
               target="_blank"
               rel="noreferrer"
+              className="p-2 rounded-lg hover:bg-gray-700 transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +175,7 @@ const Footer = () => {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-globe size-5 hover:text-green-500"
+                className="lucide lucide-globe size-5 text-gray-400 hover:text-green-400"
                 aria-hidden="true"
               >
                 <circle cx="12" cy="12" r="10"></circle>
@@ -180,7 +184,7 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-          <p className="mt-3 text-center">© 2025 Resume Builder</p>
+          <p className="mt-3 text-center text-gray-500">© 2025 ResuFlow. All rights reserved.</p>
         </div>
       </footer>
 

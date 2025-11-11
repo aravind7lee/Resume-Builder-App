@@ -2,16 +2,26 @@ import React from "react";
 
 const Banner = () => {
   return (
-    
-      <div className="w-full py-2.5 sm:py-3 font-medium text-xs sm:text-sm text-gray-800 text-center bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 border-b border-green-100">
-        <p className="flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-2 px-4">
-          <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-white bg-gradient-to-r from-green-600 to-emerald-600 text-xs font-bold shadow-md">
-            ✨ NEW
+    <>
+      <div className="w-full py-2.5 sm:py-3 font-medium text-white text-center bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 relative z-10">
+          <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white text-xs font-bold shadow-lg whitespace-nowrap">
+            ✨ NEW FEATURE
           </span>
-          <span className="font-semibold text-green-800">AI-Powered Resume Builder - Create Professional Resumes</span>
-        </p>
+          <span className="font-bold text-xs sm:text-sm">AI-Powered Resume Builder</span>
+        </div>
       </div>
-    
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .animate-shimmer {
+          animation: shimmer 3s infinite;
+        }
+      `}</style>
+    </>
   );
 };
 

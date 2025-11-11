@@ -112,6 +112,7 @@ const ResumeBuilder = () => {
   };
 
   const downloadResume = () => {
+    // Add print-specific styles for clean PDF
     const style = document.createElement('style');
     style.id = 'print-style';
     style.textContent = `
@@ -132,9 +133,16 @@ const ResumeBuilder = () => {
     `;
     document.head.appendChild(style);
     
+    // Set document title for PDF filename
+    const originalTitle = document.title;
+    document.title = resumeData.title || 'Resume';
+    
+    // Trigger print dialog
     window.print();
     
+    // Restore original title and clean up
     setTimeout(() => {
+      document.title = originalTitle;
       const printStyle = document.getElementById('print-style');
       if (printStyle) printStyle.remove();
     }, 1000);

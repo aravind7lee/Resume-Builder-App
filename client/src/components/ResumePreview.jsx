@@ -56,6 +56,11 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
 
       <style>
         {`
+          @page {
+            size: letter;
+            margin: 0;
+          }
+          
           @media print {
             /* Remove all browser headers, footers, URL, date, page numbers */
             @page {
@@ -70,11 +75,12 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
             }
             
             html, body {
-              margin: 0 !important;
-              padding: 0 !important;
               width: 210mm;
               height: 297mm;
+              margin: 0 !important;
+              padding: 0 !important;
               overflow: hidden;
+              background: white;
             }
             
             /* Hide everything except resume */
@@ -87,6 +93,7 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               visibility: visible;
             }
             
+            /* Full page resume layout */
             #resume-preview {
               position: absolute;
               left: 0;
@@ -137,18 +144,35 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
               page-break-before: avoid;
             }
             
-            h1, h2, h3, h4, h5, h6 {
+            /* ATS-Friendly Typography */
+            #resume-preview h1,
+            #resume-preview h2,
+            #resume-preview h3,
+            #resume-preview h4,
+            #resume-preview h5,
+            #resume-preview h6 {
               page-break-after: avoid;
-              page-break-inside: avoid;
+              break-after: avoid;
+              orphans: 3;
+              widows: 3;
             }
             
-            section {
+            #resume-preview p,
+            #resume-preview li,
+            #resume-preview div {
+              orphans: 2;
+              widows: 2;
+            }
+            
+            #resume-preview section {
               page-break-inside: avoid;
+              break-inside: avoid;
             }
             
             /* Ensure images render */
-            img {
+            #resume-preview img {
               max-width: 100%;
+              height: auto;
               page-break-inside: avoid;
             }
             
@@ -158,6 +182,23 @@ const ResumePreview = ({ data, template, accentColor, classes = "" }) => {
             .rounded-lg,
             .rounded-md {
               border-radius: inherit !important;
+            }
+            
+            /* Clean list formatting */
+            #resume-preview ul,
+            #resume-preview ol {
+              margin: 0.25rem 0;
+              padding-left: 1.2em;
+            }
+            
+            #resume-preview li {
+              margin-bottom: 0.15rem;
+            }
+            
+            /* Proper link formatting for ATS */
+            #resume-preview a {
+              color: inherit;
+              text-decoration: none;
             }
           }
         `}

@@ -15,6 +15,7 @@ const TwoColumnTemplate = ({ data, accentColor = '#3B82F6' }) => {
     <div className="max-w-[8.5in] mx-auto bg-white text-gray-900 grid grid-cols-1 md:grid-cols-[35%_65%] print:grid-cols-[35%_65%]" style={{ display: 'grid', gridTemplateColumns: '35% 65%' }}>
       {/* Left Sidebar - 35% */}
       <aside className="text-white p-6 print:p-4" style={{ backgroundColor: accentColor }}>
+
         {/* Profile Image */}
         {data.personal_info?.image && (
           <div className="mb-6">

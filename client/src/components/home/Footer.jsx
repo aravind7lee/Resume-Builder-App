@@ -3,13 +3,13 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-8 sm:gap-10 md:gap-20 py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 text-xs sm:text-[13px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700 mt-28 sm:mt-40">
-        <div className="flex flex-wrap items-start gap-8 sm:gap-10 md:gap-[60px] xl:gap-[140px]">
-          <a href="#">
-            <img src="/logo.png" alt="logo" className="h-10 sm:h-11 w-auto" />
+      <footer className="flex flex-wrap justify-center lg:justify-between overflow-hidden gap-8 sm:gap-10 md:gap-20 py-12 sm:py-16 px-4 sm:px-6 md:px-16 lg:px-24 xl:px-32 text-xs sm:text-[13px] bg-gray-900 border-t border-gray-800">
+        <div className="flex flex-wrap items-start gap-8 sm:gap-10 md:gap-16 lg:gap-24">
+          <a href="#" className="flex items-center">
+            <img src="/logo.png" alt="logo" className="h-10 w-auto" />
           </a>
           <div>
-            <p className="text-white font-semibold mb-3">Product</p>
+            <p className="text-white font-semibold mb-4">Product</p>
             <ul className="mt-2 space-y-2">
               <li>
                 <a href="/" className="text-gray-400 hover:text-green-400 transition">
@@ -34,7 +34,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-white font-semibold mb-3">Resources</p>
+            <p className="text-white font-semibold mb-4">Resources</p>
             <ul className="mt-2 space-y-2">
               <li>
                 <a href="/" className="text-gray-400 hover:text-green-400 transition">
@@ -67,7 +67,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-white font-semibold mb-3">Legal</p>
+            <p className="text-white font-semibold mb-4">Legal</p>
             <ul className="mt-2 space-y-2">
               <li>
                 <a href="/" className="text-gray-400 hover:text-green-400 transition">

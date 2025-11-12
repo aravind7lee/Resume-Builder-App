@@ -48,7 +48,7 @@ const Login = () => {
           <img 
             src={logo} 
             alt="Resume Builder Logo" 
-            className="h-20 sm:h-24 w-auto object-contain"
+            className="h-11 sm:h-12 md:h-14 w-auto object-contain"
           />
         </div>
 

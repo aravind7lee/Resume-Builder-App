@@ -28,7 +28,7 @@ const Hero = () => {
       {/* Navbar - Fixed */}
       <nav className="fixed top-[40px] left-0 right-0 z-50 flex items-center justify-between w-full py-4 px-4 sm:px-6 md:px-12 lg:px-20 xl:px-32 text-sm bg-white/95 backdrop-blur-md border-b border-gray-100">
           <a href="#" className="flex items-center">
-            <img src="/logo.png" alt="logo" className="h-9 sm:h-10 w-auto" />
+            <img src="/logo.png" alt="logo" className="h-11 sm:h-12 md:h-14 w-auto" />
           </a>
 
           <div className="hidden md:flex items-center gap-7 text-gray-600 font-medium">
@@ -107,7 +107,7 @@ const Hero = () => {
             {/* Sidebar Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-green-50 to-emerald-50">
               <div className="flex items-center gap-3">
-                <img src="/logo.png" alt="logo" className="h-10 w-auto" />
+                <img src="/logo.png" alt="logo" className="h-12 w-auto" />
               </div>
               <button
                 onClick={() => setMenuOpen(false)}

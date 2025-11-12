@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="shadow-md bg-white sticky top-0 z-50">
         <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 py-4 text-slate-800">
           <Link to="/" className="flex items-center">
-            <img src="/logo.png" alt="logo" className="h-10 sm:h-11 w-auto" />
+            <img src="/logo.png" alt="logo" className="h-11 sm:h-12 md:h-14 w-auto" />
           </Link>
 
           {/* Desktop Menu */}

@@ -348,16 +348,12 @@ const Hero = () => {
           </div>
 
           {/* Headline + CTA */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold max-w-5xl text-center mt-6 sm:mt-8 leading-tight sm:leading-tight md:leading-[70px] lg:leading-[85px] text-gray-900 px-2 animate-fade-in-up">
-            Land Your Dream Job with{" "}
-            <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent animate-gradient">
-              AI-Powered
-            </span>{" "}
-            Resumes
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold max-w-5xl text-center mt-6 sm:mt-8 leading-tight sm:leading-tight md:leading-[70px] lg:leading-[85px] text-gray-900 px-2">
+            Land your dream job with AI-powered resumes.
           </h1>
 
-          <p className="max-w-2xl text-center text-base sm:text-lg my-6 sm:my-8 text-gray-700 leading-relaxed font-semibold px-4 animate-fade-in-up animation-delay-200">
-            Create stunning, ATS-friendly resumes in minutes with our intelligent AI assistant. Stand out from the crowd and get hired faster.
+          <p className="max-w-2xl text-center text-base sm:text-lg my-6 sm:my-8 text-gray-600 leading-relaxed px-4">
+            Create, edit and download professional resumes with AI-powered assistance.
           </p>
 
           {/* CTA Buttons */}
